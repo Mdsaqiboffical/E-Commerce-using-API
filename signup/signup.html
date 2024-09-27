@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="input-wrapper">
+            <h1 class="heading-pera">MS MART</h1>
+            <form onsubmit="">
+                <input type="text" id="input" placeholder="Enter Your Email"> <br>
+                <input type="password" id="pass" placeholder="Enter Your password">
+                <p class="pera"><a href="">Forget Your password?</a></p>
+                <button type="]" id="btn1">Log In</button> <br>
+                <p class="pera"></p>
+            </form>
+            <!-- <a href="../index.html"><button class="home-page">Home Page</button></a> -->
+        </div>
+    </div>
+    <script>
+
+        const p = document.querySelector(".pera");
+        p.classList.add('peragraph')
+        const btn = document.querySelector("#btn1");
+        const email = document.querySelector("#input");
+        const password = document.querySelector("#pass");
+        // const cnicNo = document.querySelector("#cnic");
+        // const rollNo = document.querySelector("#roll-no");
+
+        const emailPattern = /([A-Za-z0-9._-]+@[A-Za-z0-9]+\.[A-Za-z0-9])\w+/;
+        const passwordPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        // const cnicPattern = /^[0-9]{5}-[0-9]{7}-[0-9]$/;
+        // const rollNoPattern = /([A-Za-z0-9._-])/;
+
+        btn.addEventListener("click", (e) => {
+            var emailval = email.value
+            let passval = password.value;
+            // let cnicval = cnicNo.value;
+            // let rollval = rollNo.value;
+
+            let emailResult = emailPattern.test(emailval)
+            let passResult = passwordPattern.test(passval);
+            // let cnicResult = cnicPattern.test(cnicval);
+            // let rollNoResult = rollNoPattern.test(rollval);
+            if (emailval === "" || passval === "") {
+                alert("First Enter A Value")
+            } else if (!emailResult && !passResult) {
+                p.innerText = "Not Valid"
+            } else {
+                email.value = "";
+                password.value = "";
+                // cnicNo.value = "";
+                // rollNo.value = "";
+                p.innerText = "Form Submit"
+            }
+            // console.log(result);
+
+        })
+    </script>
+</body>
+
+</html>
