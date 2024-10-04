@@ -32,7 +32,8 @@ productApi().
     `;
             container.innerHTML += productsCards;
         });
-    });
+    }).
+    catch(error => alert(`${error} . Please try again.`)) 
 
 async function resipeApi() {
     const recipeUrl = await fetch('https://dummyjson.com/recipes');
@@ -72,7 +73,7 @@ resipeApi()
     `;
             recipeContainer.innerHTML += recipeCards;
         });
-    });
+    }); 
 
 
 async function userApi() {
@@ -128,27 +129,3 @@ userCommentApi()
 
         });
     });
-
-
-// async function login() {
-//     let loginURL = await fetch('https://dummyjson.com/auth/me')
-//     let loginData = await loginURL.json()
-//     console.log(loginData);
-    
-// }
-// login()
-
-/* providing accessToken in bearer */
-// fetch('https://dummyjson.com/auth/login', {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify({
-      
-//       username: 'emilys',
-//       password: 'emilyspass',
-//       expiresInMins: 30, // optional, defaults to 60
-//     }),
-//     credentials: 'include' // Include cookies (e.g., accessToken) in the request
-//   })
-//   .then(res => res.json())
-//   .then(console.log);
